@@ -4,7 +4,7 @@
     Author     : Daniel
 --%>
 
-<%@page import="modelo.Empleado"%>
+<%@page import="modelo.Puesto"%>
 <%@page import="java.util.HashMap"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,9 +40,14 @@
             <label for="lbl_puesto"><b>Puesto:</b></label>
             <select name="drop_puesto"  id="drop_puesto" class="form-control"required >
             
-            
-            <select name="drop_sangre" id="drop_sangre" class="form-control">
-              
+                <%
+                  Puesto puesto = new Puesto();
+                  HashMap<String,String> drop = puesto.drop_sangre();
+                  for(String i:drop.keySet()){
+                    out.println("<option value='"+ i +"'>" + drop.get(i)+"</option>");
+                    }
+
+                   %>
                 
             </select>
             <br>
